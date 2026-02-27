@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  job_id:
+  gcp:
+    runs-on: ubuntu-latest
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
