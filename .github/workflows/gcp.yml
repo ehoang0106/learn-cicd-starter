@@ -1,8 +1,8 @@
 name: gcp
 
 on:
-  pull_request:
-    branches: [ main ]
+  push:
+    branches: [addtests]
   workflow_dispatch:
 
 jobs:
