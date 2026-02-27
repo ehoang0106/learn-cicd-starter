@@ -20,5 +20,5 @@ jobs:
 
       - name: Build docker by using script
         run: |
-          chomod +x /scripts/buildprod.sh
+          chmod +x /scripts/buildprod.sh
           ./scripts/buildprod.sh
