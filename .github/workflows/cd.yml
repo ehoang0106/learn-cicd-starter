@@ -38,11 +38,9 @@ jobs:
       - name: gcloud builds submit
         run: |
           IMAGE_URI="us-central1-docker.pkg.dev/notely-488722/notely-ar-repo/notely"
-          gcloud builds submit --tag ${IMAGE_URI}:${GITHUB_SHA} .
-          gcloud artifacts docker tags add ${IMAGE_URI}:${GITHUB_SHA} ${IMAGE_URI}:latest
+          gcloud builds submit --tag ${IMAGE_URI}:latest .
 
-      - name: Show pushed image tags
+      - name: Show pushed image tag
         run: |
           IMAGE_URI="us-central1-docker.pkg.dev/notely-488722/notely-ar-repo/notely"
-          echo "Pushed ${IMAGE_URI}:${GITHUB_SHA}"
           echo "Pushed ${IMAGE_URI}:latest"
