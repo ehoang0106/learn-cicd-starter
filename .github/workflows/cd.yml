@@ -3,6 +3,7 @@ name: cd
 on:
   push:
     branches: [main]
+workflow_dispatch:
 
 jobs:
   Deploy:
@@ -20,3 +21,14 @@ jobs:
 
       - name: Build docker by using script
         run: bash ./scripts/buildprod.sh
+
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v3'
+
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
