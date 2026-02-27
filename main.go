@@ -7,7 +7,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	
+
 	"strconv"
 	"time"
 
@@ -39,7 +39,7 @@ func main() {
 	}
 
 	portNum, err := strconv.Atoi(port)
-	if err != nil || portNum <1 || portNum > 65535 {
+	if err != nil || portNum < 1 || portNum > 65535 {
 		log.Fatal("PORT environment variable must be a valid integer between 1 and 65535")
 	}
 
@@ -100,12 +100,12 @@ func main() {
 	router.Mount("/v1", v1Router)
 
 	srv := &http.Server{
-		Addr:         ":" + port,
-		Handler:      router,
-		ReadHeaderTimeout:  5 * time.Second,
-		ReadTimeout:        10 * time.Second,
-		WriteTimeout:       15 * time.Second,
-		IdleTimeout:        60 * time.Second,
+		Addr:              ":" + port,
+		Handler:           router,
+		ReadHeaderTimeout: 5 * time.Second,
+		ReadTimeout:       10 * time.Second,
+		WriteTimeout:      15 * time.Second,
+		IdleTimeout:       60 * time.Second,
 	}
 
 	log.Printf("Serving on port: %d\n", portNum)
