@@ -19,6 +19,4 @@ jobs:
           go-version: "1.25.1"
 
       - name: Build docker by using script
-        run: |
-          chmod +x /scripts/buildprod.sh
-          ./scripts/buildprod.sh
+        run: bash ./scripts/buildprod.sh
